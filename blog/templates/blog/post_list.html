@@ -1,9 +1,15 @@
+{% load static %}
 <html>
   <head>
     <title>Gise's blog</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    
   </head>
   <body>
-    <h1>Mi nuevo Blog</h1>
+    <h1 class="page-header">Mi nuevo Blog</h1>
     <h2>Vamos a crear un ambiente agradable</h2>
     <h3>Chismes y más Chismes</h3>
     <p>
@@ -12,7 +18,7 @@
       recusandae tenetur adipisci reiciendis amet temporibus, incidunt vel
       perspiciatis ullam unde. Modi, nemo.
     </p>
-    <em>Soy Gisela Rodriguez Stewart</em>
+    <em class="page-header">Soy Gisela Rodriguez Stewart</em>
     <strong>Fisioterapeuta- Esteticista corporal y Desarrolladora Full- Stack python </strong>
     <br>
 
@@ -20,30 +26,32 @@
     <br><a href="https://djangogirls.org">link</a>
     <p>It works!</p>
     <ul><li>Mi vida social</li><li>Mi vida personal</li></ul>
-
-    <div>
+    <div class="post">
         <h2>My Blog</h2>
         <p>published: 2021-07-01</p>
         <h3><a href="in">My first post</a></h3>
         <p>Hi there! This is my first post for my blog. I hope you enjoy it!</p>
     </div>
-  </body>
-</html>
-<html>
-    <head>
-        <title>Django Girls blog</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="/">Django Girls Blog</a></h1>
-        </div>
-        {% for post in posts %}
 
-          <div>
-            <p> publicado: {{ post.published_date }}</p>
-            <h2><a href="">{{ post.title }}</a></h2>
-            <p>{{ post.text|linebreaksbr }}</p>           
+    <title class="page-header">Django Girls blog</title>
+         <div class="post">
+            <h1><a href="/">Django Girls Blog</a></h1>
+            <a href="https://en.wikipedia.org/wiki/Django" class="external_link" id="link_to_wiki_page"></a>
+        </div>
+        <div class="content container">
+          <div class="row">
+              <div class="col-md-8">
+                  {% for post in posts %}
+                      <div class="post">
+                          <div class="date">
+                              <p>publicado: {{ post.published_date }}</p>
+                          </div>
+                          <h2><a href="">{{ post.title }}</a></h2>
+                          <p>{{ post.text|linebreaksbr }}</p>
+                      </div>
+                  {% endfor %}
+              </div>
           </div>
-        {% endfor %}
+      </div>
     </body>
 </html>
